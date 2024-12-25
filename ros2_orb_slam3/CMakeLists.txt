@@ -31,6 +31,8 @@ find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 # find_package(your_custom_msg_interface REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV 4.2 REQUIRED)
@@ -38,6 +40,7 @@ find_package(Eigen3 3.3.0 REQUIRED) # Matched with Sophus
 find_package(Pangolin REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(tf2 REQUIRED)
 
 find_package(message_filters REQUIRED)
 # find_package(Sophus REQUIRED)
@@ -67,6 +70,8 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
   rclpy
   std_msgs
   sensor_msgs
+  nav_msgs
+  geometry_msgs
   # your_custom_msg_interface
   cv_bridge
   image_transport
@@ -74,6 +79,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
   Eigen3
   Pangolin
   tf2_ros
+  tf2
 )
 
 #* ORB SLAM3 as a shared library

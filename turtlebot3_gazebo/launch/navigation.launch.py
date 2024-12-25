@@ -18,7 +18,7 @@ def generate_launch_description():
         ),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([get_package_share_directory('nav2_bringup'),'/launch','/bringup_launch.py']),
+            PythonLaunchDescriptionSource([get_package_share_directory('turtlebot3_gazebo'),'/launch','/nav2_bringup.launch.py']),
             launch_arguments={
             'map':map_file,
             'params_file': param_file}.items(),

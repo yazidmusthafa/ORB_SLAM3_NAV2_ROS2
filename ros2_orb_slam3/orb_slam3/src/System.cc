@@ -135,7 +135,7 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
         // Load the file with an earlier session
         //clock_t start = clock();
         cout << "Initialization of Atlas from file: " << mStrLoadAtlasFromFile << endl;
-        bool isRead = LoadAtlas(FileType::BINARY_FILE);
+        bool isRead = LoadAtlas(FileType::TEXT_FILE);
 
         if(!isRead)
         {
