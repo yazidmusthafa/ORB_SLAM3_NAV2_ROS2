@@ -33,6 +33,9 @@ def generate_launch_description():
     bringup_dir = get_package_share_directory('nav2_bringup')
     launch_dir = os.path.join(bringup_dir, 'launch')
 
+    bringup_dir_no_amcl = get_package_share_directory('turtlebot3_gazebo')
+    launch_dir_no_amcl = os.path.join(bringup_dir_no_amcl, 'launch')
+
     # Create the launch configuration variables
     namespace = LaunchConfiguration('namespace')
     use_namespace = LaunchConfiguration('use_namespace')
@@ -150,7 +153,7 @@ def generate_launch_description():
                               'params_file': params_file}.items()),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(launch_dir,
+            PythonLaunchDescriptionSource(os.path.join(launch_dir_no_amcl,
                                                        'localization_launch.py')),
             condition=IfCondition(PythonExpression(['not ', slam])),
             launch_arguments={'namespace': namespace,

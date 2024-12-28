@@ -42,6 +42,8 @@ private:
 
     void PublishOdometry(const Sophus::SE3f& pose, const rclcpp::Time& timestamp);
 
+    void SetInitialPose();
+
     ORB_SLAM3::System* m_SLAM;
 
     cv_bridge::CvImageConstPtr cv_ptrRGB;

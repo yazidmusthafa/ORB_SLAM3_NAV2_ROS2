@@ -34,6 +34,16 @@ ThDepth: 60.0
 # Deptmap values factor
 DepthMapFactor: 1.0
 
+# # Transformation from body-frame (imu) to left camera
+# Tbc: !!opencv-matrix
+#    rows: 4
+#    cols: 4
+#    dt: f
+#    data: [0, -1,  0,  0.0,  # Rotate around X-axis: Optical axis (Z) -> Y-axis
+#           1,  0,  0,  0.0,  # Rotate around Z-axis: Y-axis -> X-axis
+#           0,  0,  1,  0.02, # Z-axis remains as is
+#           0.0, 0.0, 0.0, 1.0]
+
 #--------------------------------------------------------------------------------------------
 # ORB Parameters
 #--------------------------------------------------------------------------------------------
