@@ -135,7 +135,7 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
         // Load the file with an earlier session
         //clock_t start = clock();
         cout << "Initialization of Atlas from file: " << mStrLoadAtlasFromFile << endl;
-        bool isRead = LoadAtlas(FileType::TEXT_FILE);
+        bool isRead = LoadAtlas(FileType::BINARY_FILE);
 
         if(!isRead)
         {
@@ -541,7 +541,7 @@ void System::Shutdown()
         Verbose::PrintMess("Atlas saving to file " + mStrSaveAtlasToFile, Verbose::VERBOSITY_NORMAL);
         // SaveAtlas(FileType::BINARY_FILE);
         SavePointCloud(mStrSaveAtlasToFile);
-        SaveAtlas(FileType::TEXT_FILE);
+        SaveAtlas(FileType::BINARY_FILE);
         
     }
 

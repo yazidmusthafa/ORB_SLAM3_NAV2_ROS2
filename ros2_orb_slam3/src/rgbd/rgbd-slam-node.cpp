@@ -61,7 +61,7 @@ void RgbdSlamNode::GrabRGBD(const ImageMsg::SharedPtr msgRGB, const ImageMsg::Sh
 
     if (!pose.matrix().isIdentity(1e-6)) // Check if pose is valid
     {
-        PublishOdometry(pose.inverse(), msgRGB->header.stamp);
+        PublishOdometry(pose.inverse(), msgRGB->header.stamp);  //* Pose with respect to global image coordinate, for future use
     }
 }
 
@@ -95,13 +95,13 @@ void RgbdSlamNode::PublishOdometry(const Sophus::SE3f& pose, const rclcpp::Time&
     odom_msg.header.frame_id = "odom";
     odom_msg.child_frame_id = "base_footprint";
 
-    odom_msg.pose.pose.position.x = translation.z();    // -z in pose is x in NAV2
-    odom_msg.pose.pose.position.y = -translation.x();
+    odom_msg.pose.pose.position.x = translation.z();    // z from ORB SLAM3 is x in NAV2
+    odom_msg.pose.pose.position.y = -translation.x();   // -x from ORB SLAM3 is y in NAV2
     odom_msg.pose.pose.position.z = 0.0;  // Assuming 2D movement
 
     odom_msg.pose.pose.orientation.x = 0.0;
     odom_msg.pose.pose.orientation.y = 0.0;
-    odom_msg.pose.pose.orientation.z = -rotation.y();
+    odom_msg.pose.pose.orientation.z = -rotation.y();    // Changing axis of rotation from -y (in ORB SLAM3) to z (in NAV2)
     odom_msg.pose.pose.orientation.w = rotation.w();
 
     odom_pub->publish(odom_msg);
@@ -112,7 +112,7 @@ void RgbdSlamNode::PublishOdometry(const Sophus::SE3f& pose, const rclcpp::Time&
     tf_msg.child_frame_id = "base_footprint";
     tf_msg.transform.translation.x = translation.z();
     tf_msg.transform.translation.y = -translation.x();
-    tf_msg.transform.translation.z = 0.0;  // Assuming 2D movement
+    tf_msg.transform.translation.z = 0.0;  
     tf_msg.transform.rotation.x = 0.0;
     tf_msg.transform.rotation.y = 0.0;
     tf_msg.transform.rotation.z = -rotation.y();
