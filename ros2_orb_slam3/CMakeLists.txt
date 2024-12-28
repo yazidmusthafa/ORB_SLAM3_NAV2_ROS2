@@ -174,10 +174,6 @@ install(FILES ${DBoW2_PATH} DESTINATION lib)
 install(FILES ${g2o_PATH} DESTINATION lib)
 
 # Add executable
-add_executable(mono_node_cpp
-  src/mono_example.cpp
-  src/common.cpp
-)
 
 add_executable(ros2_mono_node src/ros2_mono.cpp)
 
@@ -200,10 +196,6 @@ ament_target_dependencies(mono-inertial
 PUBLIC ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
 
-ament_target_dependencies(mono_node_cpp
-  PUBLIC ${THIS_PACKAGE_INCLUDE_DEPENDS}
-)
-
 ament_target_dependencies(ros2_mono_node
   PUBLIC ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
@@ -220,16 +212,13 @@ target_link_libraries(ros2_mono_node PUBLIC orb_slam3_lib)
 
 target_link_libraries(ros2_mono_inertial_node PUBLIC orb_slam3_lib)
 
-target_link_libraries(mono_node_cpp PUBLIC orb_slam3_lib) # Link a node with the internal shared library
-
-
 # Install all the header files in package/package/include
 install (DIRECTORY include/ 
         DESTINATION include
 )
 
 # Install our node and library
-install(TARGETS mono_node_cpp orb_slam3_lib ros2_mono_node ros2_mono_inertial_node mono-inertial rgbd
+install(TARGETS orb_slam3_lib ros2_mono_node ros2_mono_inertial_node mono-inertial rgbd
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
