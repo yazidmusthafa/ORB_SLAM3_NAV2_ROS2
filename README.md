@@ -76,8 +76,8 @@ cd ~
 ```
 mkdir -p ~/vslam_ws/src
 cd ~/vslam_ws/src
-git clone https://github.com/Mechazo11/ros2_orb_slam3.git
-cd .. # make sure you are in ~/ros2_ws root directory
+git clone https://github.com/yazidmusthafa/ORB_SLAM3_NAV2_ROS2.git
+cd .. # make sure you are in ~/vslam_ws root directory
 ```
 3. Source ROS2 Humble tools and run colcon build commands
 ```
@@ -120,12 +120,12 @@ ros2 run turtlebot3_teleop ros2 run turtlebot3_teleop teleop_keyboard
 ```
 Then use Keyboard to control the Robot to move around and record the Map, if the map is satisfactory cut the node using ctrl+c. This will save the map in both '.OSA' and '.TXT' files.
 
-* '.OSA' file is for loading the map in ORB SLAM3 (See ros2_orb_slam3/orb_slam3/config/rgb-d/Gazebo_cam.yaml (System.LoadAtlasFromFile))
+* '.OSA' file is for loading the map in ORB SLAM3 (See [Config File](https://github.com/yazidmusthafa/ORB_SLAM3_NAV2_ROS2/blob/main/ros2_orb_slam3/orb_slam3/config/rgb-d/Gazebo_cam.yaml) (System.LoadAtlasFromFile))
 * '.TXT' file only contains the point cloud data in the Cartesian Space.
 
-Use ros2_orb_slam3/src/txt_to_ply.py to convert the '.TXT' file into '.PLY'.
+Use [Text to PLY converter](https://github.com/yazidmusthafa/ORB_SLAM3_NAV2_ROS2/blob/main/ros2_orb_slam3/src/txt_to_ply.py) to convert the '.TXT' file into '.PLY'.
 
-Then by using ros2_orb_slam3/src/ply_to_pgm_with_filter.py, convert the '.PLY' into '.PGM', which is used in Nav2 for publishing Map.
+Then by using [Text to PLY converter](https://github.com/yazidmusthafa/ORB_SLAM3_NAV2_ROS2/blob/main/ros2_orb_slam3/src/ply_to_pgm_with_filter.py), convert the '.PLY' into '.PGM', which is used in Nav2 for publishing Map.
 
 Now, provide the path to the new Map's Yaml file in the Navigation.launch.py.
 
