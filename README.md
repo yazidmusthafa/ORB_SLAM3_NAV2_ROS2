@@ -125,7 +125,7 @@ Then use Keyboard to control the Robot to move around and record the Map, if the
 
 Use [Text to PLY converter](https://github.com/yazidmusthafa/ORB_SLAM3_NAV2_ROS2/blob/main/ros2_orb_slam3/src/txt_to_ply.py) to convert the '.TXT' file into '.PLY'.
 
-Then by using [Text to PLY converter](https://github.com/yazidmusthafa/ORB_SLAM3_NAV2_ROS2/blob/main/ros2_orb_slam3/src/ply_to_pgm_with_filter.py), convert the '.PLY' into '.PGM', which is used in Nav2 for publishing Map.
+Then by using [PLY to PGM converter](https://github.com/yazidmusthafa/ORB_SLAM3_NAV2_ROS2/blob/main/ros2_orb_slam3/src/ply_to_pgm_with_filter.py), convert the '.PLY' into '.PGM', which is used in Nav2 for publishing Map.
 
 Now, provide the path to the new Map's Yaml file in the Navigation.launch.py.
 
