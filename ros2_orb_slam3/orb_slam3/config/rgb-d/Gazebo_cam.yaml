@@ -73,8 +73,8 @@ Viewer.ViewpointF: 500
 # Save Map
 #---------------------------------------------------------------------------------------------
 
-# System.SaveAtlasToFile: "src/ros2_orb_slam3/saved_map/test_map"
+System.SaveAtlasToFile: "src/ros2_orb_slam3/saved_map/test_map"
 
-System.LoadAtlasFromFile: "src/saved_maps/vslam_map_binary/test_map"
+# System.LoadAtlasFromFile: "src/saved_maps/vslam_map_binary/test_map"
 
 

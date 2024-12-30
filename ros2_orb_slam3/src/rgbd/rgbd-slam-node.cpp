@@ -8,7 +8,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 
-// ros2 run ros2_orb_slam3 rgbd /home/yazidmusthafa/ros2_test/src/ros2_orb_slam3/orb_slam3/Vocabulary/ORBvoc.txt.bin /home/yazidmusthafa/ros2_test/src/ros2_orb_slam3/orb_slam3/config/rgb-d/TUM3.yaml
+// ros2 run ros2_orb_slam3 rgbd ./src/ros2_orb_slam3/orb_slam3/Vocabulary/ORBvoc.txt.bin ./src/ros2_orb_slam3/orb_slam3/config/rgb-d/Gazebo_cam.yaml
 
 using std::placeholders::_1;
 
