@@ -15,7 +15,7 @@ A ROS2 package for ORB SLAM3 V1.0. Focus is on native integration with ROS2 ecos
 ## Testing platforms
 1. AMD Ryzen 4500H, x86_64 bit architecture, Ubuntu 22.04 LTS (Jammy Jellyfish) and RO2 Humble Hawksbill (LTS)
 
-## 1. Prerequisitis
+## 1. Prerequisites
 The following softwares must be installed before this package can be installed and used correctly
 
 ### Eigen3
